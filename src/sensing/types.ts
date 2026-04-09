@@ -1,9 +1,4 @@
-export type SensingCapability =
-  | "mobility"
-  | "location"
-  | "usage_stats"
-  | "battery"
-  | "audio_level";
+export type SensingCapability = "mobility" | "location" | "usage_stats" | "battery" | "audio_level";
 
 export type PermissionState = "granted" | "denied" | "restricted" | "unsupported" | "unknown";
 export type RiskLevel = "low" | "medium" | "high";
@@ -90,25 +85,10 @@ export interface WellbeingRiskResult {
   disclaimer: string;
 }
 
-export interface SensingNativeModule {
-  requestPermission?(capability: SensingCapability): Promise<PermissionState>;
-  getPermissionStatus?(capability: SensingCapability): Promise<PermissionState>;
-  getActivity?(): Promise<ActivityResult>;
-  getLocation?(): Promise<LocationResult>;
-  getUsageStats?(windowMs?: number): Promise<UsageStatsResult | null>;
-  getBatteryStatus?(): Promise<BatteryStatusResult>;
-  getAudioLevel?(): Promise<AudioLevelResult>;
-  startAudioLevelStream?(intervalMs?: number): Promise<void>;
-  stopAudioLevelStream?(): Promise<void>;
-  captureAndPersistSnapshot?(): Promise<PermissionSnapshot>;
-  getPermissionHistory?(capability: SensingCapability, range?: TimeRange): Promise<PermissionSnapshot[]>;
-  getChangeSummary?(range?: TimeRange): Promise<ChangeSummary>;
-  getWellbeingRisk?(range?: TimeRange): Promise<WellbeingRiskResult>;
-}
-
 export interface SensingResult<T> {
   ok: boolean;
   data?: T;
   error?: string;
   code?: "UNAVAILABLE" | "UNSUPPORTED" | "PERMISSION_DENIED" | "NATIVE_ERROR";
 }
+
