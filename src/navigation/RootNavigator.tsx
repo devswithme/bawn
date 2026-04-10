@@ -20,7 +20,10 @@ export function RootNavigator() {
         screenOptions={{
           headerStyle: { backgroundColor: "#101622" },
           headerTintColor: "#fff",
-          tabBarStyle: { backgroundColor: "#0d1321", borderTopColor: "rgba(255,255,255,0.12)" },
+          tabBarStyle: {
+            backgroundColor: "#0d1321",
+            borderTopColor: "rgba(255,255,255,0.12)",
+          },
           tabBarActiveTintColor: "#7ca6ff",
           tabBarInactiveTintColor: "rgba(255,255,255,0.65)",
         }}
@@ -32,4 +35,3 @@ export function RootNavigator() {
     </NavigationContainer>
   );
 }
-
